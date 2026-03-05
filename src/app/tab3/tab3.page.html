@@ -1,0 +1,40 @@
+<app-my-header name="Лабораторна робота 1"></app-my-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title>Завдання 3</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          Згенерувати матрицю NxN.Знайти суму елеементів головної діагоналі.
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Розмір матриці"
+            labelPlacement="stacked"
+            type="number"
+            value="3"
+            #InputN
+          ></ion-input>
+        </ion-item>
+        <ion-button
+        expand="block"
+        (click)="generate(InputN.value)"
+        >Розрахунок</ion-button>
+        <ion-grid *ngIf="matrix.length > 0">
+          <ion-row *ngFor="let row of matrix; let i = index">
+            <ion-col *ngFor="let cell of row; let j = index"
+            [ngStyle]="{'background-color': i === j ? 'yellow' : 'transparent',
+            'color': cell > 5 ? 'green' : 'black'}"
+            style="border: 1px solid black; text-align: center;">
+              {{cell}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-item>
+          <p>Сума елементів головної діагоналі: {{sum}}</p>
+        </ion-item>
+      </ion-card-content>
+  </ion-card>
+</ion-content>

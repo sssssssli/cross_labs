@@ -1,0 +1,44 @@
+<app-my-header name="Лабораторна робота 1"></app-my-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Завдання 2</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+          На заданому проміжку чисел [a,b] підрахувати добуток чисел, 
+          кратних 7 і менших, ніж 30. Потрібно вивести як самі числа так 
+          і результати обрахунку.
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Початок проміжку"
+          labelPlacement="stacked"
+          type="number"
+          value="1"
+          #InputA
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Кінець проміжку"
+          labelPlacement="stacked"
+          type="number"
+          value="100"
+          #InputB
+        ></ion-input>
+      </ion-item>
+      <ion-button
+      expand="block"
+      (click)="calculate(InputA.value, InputB.value)"
+      >Розрахунок</ion-button>
+      <ion-item>
+        <p>Числа: {{numbers}}</p>
+      </ion-item>
+      <ion-item>
+        <p>Результат: {{product}}</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
